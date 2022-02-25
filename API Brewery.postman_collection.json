@@ -1,0 +1,213 @@
+{
+	"info": {
+		"_postman_id": "94e7e405-8846-4bdb-968a-3dfcfd7948fa",
+		"name": "API Brewery",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Breweries",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/breweries",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"breweries"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get brewery by Id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/breweries/{{BREWERY_ID}}",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"breweries",
+						"{{BREWERY_ID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get brewery by search query",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/breweries/search?query=query",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"breweries",
+						"search"
+					],
+					"query": [
+						{
+							"key": "query",
+							"value": "query"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Brewery with query longer than 5 characters",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/breweries/search?query=brewery",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"breweries",
+						"search"
+					],
+					"query": [
+						{
+							"key": "query",
+							"value": "brewery"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Brewery with query less than 5 characters",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/breweries/search?query=test",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"breweries",
+						"search"
+					],
+					"query": [
+						{
+							"key": "query",
+							"value": "test"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_URL",
+			"value": "http://localhost:8080",
+			"type": "string"
+		},
+		{
+			"key": "BREWERY_ID",
+			"value": "1234",
+			"type": "string"
+		}
+	]
+}
